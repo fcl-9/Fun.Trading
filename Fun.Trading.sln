@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun.Trading.StaticData.Api", "Fun.Trading.StaticData.Api\Fun.Trading.StaticData.Api.csproj", "{864B65A5-6779-48D2-B024-4576AD091A9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fun.Trading.StaticData.Api", "Fun.Trading.StaticData.Api\Fun.Trading.StaticData.Api.csproj", "{864B65A5-6779-48D2-B024-4576AD091A9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun.Trading.StaticData.Infrastructure", "Fun.Trading.StaticData.Infrastructure\Fun.Trading.StaticData.Infrastructure.csproj", "{3D86B9AD-0C90-4F2A-A1CA-041D4650E325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fun.Trading.StaticData.Infrastructure", "Fun.Trading.StaticData.Infrastructure\Fun.Trading.StaticData.Infrastructure.csproj", "{3D86B9AD-0C90-4F2A-A1CA-041D4650E325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun.Trading.Orders.Api", "Fun.Trading.Orders.Api\Fun.Trading.Orders.Api.csproj", "{9177FAC9-C728-4487-B61A-8AF048DACB99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3D86B9AD-0C90-4F2A-A1CA-041D4650E325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D86B9AD-0C90-4F2A-A1CA-041D4650E325}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D86B9AD-0C90-4F2A-A1CA-041D4650E325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9177FAC9-C728-4487-B61A-8AF048DACB99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9177FAC9-C728-4487-B61A-8AF048DACB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9177FAC9-C728-4487-B61A-8AF048DACB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9177FAC9-C728-4487-B61A-8AF048DACB99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

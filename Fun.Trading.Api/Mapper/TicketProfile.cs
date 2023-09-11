@@ -4,9 +4,9 @@ using Fun.Trading.StaticData.Infrastructure.Database.DatabaseModel;
 
 namespace Fun.Trading.StaticData.Api.Mapper
 {
-    public class MappingProfile : Profile
+    public class TicketProfile : Profile
     {
-        public MappingProfile()
+        public TicketProfile()
         {
             CreateMap<TickerRequest, Ticker>(); 
             CreateMap<Ticker, TickerResponse>();

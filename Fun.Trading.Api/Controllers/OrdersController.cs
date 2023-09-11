@@ -1,5 +1,4 @@
 ﻿using Fun.Trading.Orders.Api.Model;
-using Fun.Trading.Orders.Api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,26 +7,63 @@ namespace Fun.Trading.Orders.Api.Controllers
     [Authorize]
     [ApiController]
     [Route("api/orders")]
-    public class TradingController : ControllerBase
+    public class OrdersController : ControllerBase
     {
-        private readonly ITradingService _tradingService;
 
-        public TradingController(ITradingService tradingService)
+        public OrdersController()
         {
-            _tradingService = tradingService;
         }
 
-        [HttpPost("place-order")]
-        public async Task<IActionResult> PlaceOrder(OrderRequest model)
+        [HttpPost]
+        public async Task<IActionResult> CreateOrder(OrderRequest model)
         {
-            var result = await _tradingService.CreateOrderAsync(model);
+            throw new NotImplementedException();
+        }
 
-            if (!result.Success)
-            {
-                return BadRequest(result.Message);
-            }
+        /// <summary>
+        /// Get a list of open orders for the user
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetOrders()
+        {
+            throw new NotImplementedException();
+        }
 
-            return Ok(result.Message);
+        /// <summary>
+        /// Get a specific order
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetOrderById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Updates a specific order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateOrderById(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Deletes a specific order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        [HttpDelete]
+        public async Task<IActionResult> DeleteOrderById(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

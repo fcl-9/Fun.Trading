@@ -5,7 +5,6 @@
     using Fun.Trading.Infrastructure.Database.DatabaseModel;
     using Microsoft.AspNetCore.Mvc;
     using System;
-    using System.Data.Common;
 
     namespace YourNamespace.Controllers
     {

@@ -1,5 +1,4 @@
 ﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
-using System.Data.Common;
 
 namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
 {

@@ -1,6 +1,6 @@
 ﻿namespace Fun.Trading.StaticData.Infrastructure.Database.DatabaseModel
 {
-    public class Ticker
+    public class DbTicker
     {
         public int Id { get; set; }
         public string Symbol { get; set; }

@@ -12,18 +12,18 @@ namespace Fun.Trading.StaticData.Infrastructure.Database.Repository
             _context = context;
         }
 
-        public async Task<List<Ticker>> GetAllTickersAsync()
+        public async Task<List<DbTicker>> GetAllTickersAsync()
         {
             return await _context.Tickers.ToListAsync();
         }
 
-        public async Task AddTickerAsync(Ticker ticker)
+        public async Task AddTickerAsync(DbTicker ticker)
         {
             _context.Tickers.Add(ticker);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Ticker> GetTickerBySymbolAsync(string tickerSymbol)
+        public async Task<DbTicker> GetTickerBySymbolAsync(string tickerSymbol)
         {
             return await _context.Tickers.SingleOrDefaultAsync(t => t.Symbol == tickerSymbol);
         }

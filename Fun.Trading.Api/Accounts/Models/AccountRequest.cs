@@ -2,7 +2,7 @@
 {
     namespace YourNamespace.Controllers
     {
-        public class Account
+        public class AccountRequest
         {
             public int OwnerId { get; set; }
             public AccountType AccountType { get; set; }

@@ -52,13 +52,14 @@ public class AccountProfile : Profile
 {
     public AccountProfile()
     {
-        CreateMap<Account, DbAccount>()
+        CreateMap<AccountRequest, DbAccount>()
             .ForMember(dest => dest.OwnerId, opt => opt.MapFrom(src => src.OwnerId))
             .ForMember(dest => dest.AccountType, opt => opt.MapFrom(src => src.AccountType.ToString()))
             .ForMember(dest => dest.Balance, opt => opt.MapFrom(src => src.Balance));
 
-        CreateMap<DbAccount, Account>()
-            .ForMember(dest => dest.OwnerId, opt => opt.MapFrom(src => src.OwnerId))
+        CreateMap<DbAccount, AccountResponse>()
+            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            .ForMember(dest => dest.OwnerId, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.AccountType, opt => opt.MapFrom(src => Enum.Parse<AccountType>(src.AccountType)))
             .ForMember(dest => dest.Balance, opt => opt.MapFrom(src => src.Balance));
     }

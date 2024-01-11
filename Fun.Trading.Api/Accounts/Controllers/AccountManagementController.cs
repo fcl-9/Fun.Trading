@@ -22,9 +22,9 @@
             }
 
             [HttpPost]
-            public async Task<IActionResult> CreateAccount(Account body)
+            public async Task<IActionResult> CreateAccount(AccountRequest body)
             {
-                var dbAccount = mapper.Map<Account, DbAccount>(body);
+                var dbAccount = mapper.Map<AccountRequest, DbAccount>(body);
                 var accountId = await accountRepository.CreateAccount(dbAccount);
                 return CreatedAtRoute(nameof(GetAccountById), accountId);
             }
@@ -37,7 +37,7 @@
                 {
                     return NotFound();
                 }
-                var account = mapper.Map<DbAccount, Account>(dbAccount);
+                var account = mapper.Map<DbAccount, AccountResponse>(dbAccount);
                 return Ok(account);
             }
 
@@ -45,7 +45,7 @@
             public async Task<IActionResult> GetAccountByOwner(int ownerId)
             {
                 var accountsByOwnerId = await accountRepository.GetAccountByOwnerId(ownerId);
-                var accounts = mapper.Map<IEnumerable<DbAccount>, IEnumerable<Account>>(accountsByOwnerId);
+                var accounts = mapper.Map<IEnumerable<DbAccount>, IEnumerable<AccountResponse>>(accountsByOwnerId);
                 return Ok(accounts);
             }
 

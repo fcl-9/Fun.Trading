@@ -26,7 +26,20 @@
             {
                 var dbAccount = mapper.Map<Account, DbAccount>(body);
                 var accountId = await accountRepository.CreateAccount(dbAccount);
-                return Created(new Uri(Request.Path), accountId);
+                //TODO: Missing implementation of GET Endpoint By Id
+                return CreatedAtRoute(nameof(GetAccountById), accountId);
+            }
+
+            [HttpGet("{accountId}")]
+            public async Task<IActionResult> GetAccountById(int accountId)
+            {
+                var dbAccount = await accountRepository.GetAccountById(accountId);
+                if(dbAccount is null)
+                {
+                    return NotFound();
+                }
+                var account = mapper.Map<DbAccount, Account>(dbAccount);
+                return Ok(account);
             }
 
             [HttpGet("owner/{ownerId}")]

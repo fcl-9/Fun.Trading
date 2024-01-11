@@ -18,13 +18,16 @@ namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
             await _context.SaveChangesAsync();
             return account.Id;
         }
-
+        public async Task<DbAccount?> GetAccountById(int accountId)
+        {
+            var account = await _context.Accounts.SingleOrDefaultAsync(acc => acc.Id == accountId);
+            return account;
+        }
         public async Task<IEnumerable<DbAccount>> GetAccountByOwnerId(int ownerId)
         {
             var accounts = await _context.Accounts.Where(acc => acc.OwnerId == ownerId).ToListAsync();
             return accounts;
         }
-
         public async Task<IEnumerable<DbTransaction>> GetTransactionsByAccount(int accountId)
         {
             var account = await _context.Accounts.SingleAsync(acc => acc.Id == accountId);

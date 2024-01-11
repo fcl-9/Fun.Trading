@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /Fun.Trading.Api/Trading.db
 /Fun.Trading.Infrastructure/Migrations
+/Fun.Trading.Api/Trading.db-shm
+/Fun.Trading.Api/Trading.db-wal

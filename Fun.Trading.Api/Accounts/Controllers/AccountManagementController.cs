@@ -26,7 +26,6 @@
             {
                 var dbAccount = mapper.Map<Account, DbAccount>(body);
                 var accountId = await accountRepository.CreateAccount(dbAccount);
-                //TODO: Missing implementation of GET Endpoint By Id
                 return CreatedAtRoute(nameof(GetAccountById), accountId);
             }
 

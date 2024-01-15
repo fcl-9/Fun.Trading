@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Fun.Trading.Orders.Api.Controllers
+namespace Fun.Trading.Api.Orders.Controllers
 {
     [Authorize]
     [ApiController]

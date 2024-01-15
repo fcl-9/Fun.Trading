@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fun.Trading.Api", "Fun.Trad
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fun.Trading.Infrastructure", "Fun.Trading.Infrastructure\Fun.Trading.Infrastructure.csproj", "{01361826-AC72-485D-951F-EDC84309840A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun.Trading.App", "Fun.Trading.App\Fun.Trading.App.csproj", "{826638D5-781C-49F8-A298-75585313FFB7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +27,6 @@ Global
 		{01361826-AC72-485D-951F-EDC84309840A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01361826-AC72-485D-951F-EDC84309840A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01361826-AC72-485D-951F-EDC84309840A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{826638D5-781C-49F8-A298-75585313FFB7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

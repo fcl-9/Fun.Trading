@@ -1,24 +1,59 @@
-﻿namespace Fun.Trading.App
+﻿using Fun.Trading.App.Auth0;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace Fun.Trading.App
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private readonly Auth0Client auth0Client;
+        private readonly ITradingClient tradingClient;
 
-        public MainPage()
+        public MainPage(Auth0Client client, ITradingClient tradingClient)
         {
             InitializeComponent();
+            auth0Client = client;
+            this.tradingClient = tradingClient;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnLoginClicked(object sender, EventArgs e)
         {
-            count++;
+            var loginResult = await auth0Client.LoginAsync();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            if (!loginResult.IsError)
+            {
+                UsernameLbl.Text = loginResult.User.Identity.Name;
+                UserPictureImg.Source = loginResult.User
+                  .Claims.FirstOrDefault(c => c.Type == "picture")?.Value;
+
+                LoginView.IsVisible = false;
+                HomeView.IsVisible = true;
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
+            {
+                await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+            }
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private async void OnLogoutClicked(object sender, EventArgs e)
+        {
+            var logoutResult = await auth0Client.LogoutAsync();
+
+            if (!logoutResult.IsError)
+            {
+                HomeView.IsVisible = false;
+                LoginView.IsVisible = true;
+            }
+            else
+            {
+                await DisplayAlert("Error", logoutResult.ErrorDescription, "OK");
+            }
+        }
+
+        private async void OnCallClick(object sender, EventArgs e)
+        {
+            var account = await tradingClient.GetAccountByOwnerId(0);
+            LabelOut.Text = JsonSerializer.Serialize(account);
         }
     }
 

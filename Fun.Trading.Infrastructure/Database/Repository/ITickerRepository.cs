@@ -6,6 +6,6 @@ namespace Fun.Trading.StaticData.Infrastructure.Database.Repository
     {
         Task AddTickerAsync(DbTicker ticker);
         Task<List<DbTicker>> GetAllTickersAsync();
-        Task<DbTicker> GetTickerBySymbolAsync(string tickerSymbol);
+        Task<DbTicker?> GetTickerBySymbolAsync(string tickerSymbol);
     }
 }

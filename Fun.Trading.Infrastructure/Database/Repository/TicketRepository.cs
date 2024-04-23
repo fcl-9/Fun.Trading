@@ -23,7 +23,7 @@ namespace Fun.Trading.StaticData.Infrastructure.Database.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<DbTicker> GetTickerBySymbolAsync(string tickerSymbol)
+        public async Task<DbTicker?> GetTickerBySymbolAsync(string tickerSymbol)
         {
             return await _context.Tickers.SingleOrDefaultAsync(t => t.Symbol == tickerSymbol);
         }

@@ -1,11 +1,9 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Fun.Trading.Api/Fun.Trading.Api.csproj", "Fun.Trading.Api/"]
 RUN dotnet restore "Fun.Trading.Api/Fun.Trading.Api.csproj"
@@ -15,6 +13,8 @@ RUN dotnet build "Fun.Trading.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "Fun.Trading.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+USER app
 
 FROM base AS final
 WORKDIR /app

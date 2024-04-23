@@ -1,0 +1,54 @@
+name: .NET CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      CONTAINER_IMAGE_NAME: "fun-trading-api"
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.0.x' # Adjust version as needed
+        
+      - name: Restore dependencies
+        run: dotnet restore
+        
+      - name: Build
+        run: dotnet build --configuration Release
+        
+      - name: Run tests
+        run: dotnet test --configuration Release --no-build
+        continue-on-error: true
+        
+      - name: Upload test results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: '**/TestResults/*.trx'
+
+      - name: Build Docker image
+        run: docker build -t $CONTAINER_IMAGE_NAME .
+
+      # Example: Push Docker image to registry (replace with your deployment steps)
+      # - name: Push Docker image
+      #   run: |
+      #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      #     docker push your-image-name
+
+      # # Add steps for deploying your application (replace with your deployment steps)
+      # - name: Deploy to production
+      #   run: |
+      #     # Example: Use kubectl to apply Kubernetes manifests
+      #     kubectl apply -f deployment.yaml

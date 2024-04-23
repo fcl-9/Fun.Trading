@@ -36,27 +36,23 @@ jobs:
     - name: Run Package Vulnerabiltiy Scan
       run: dotnet list package --vulnerable
 
-    - name: Run Trivy vulnerability scanner in repo mode
+    - name: Run Trivy scanner
       uses: aquasecurity/trivy-action@master
       with:
-        scan-type: 'fs'
-        ignore-unfixed: true
-        format: 'sarif'
-        output: 'trivy-results.sarif'
-        severity: 'CRITICAL'
-
-    - name: Upload Trivy scan results to GitHub Security tab
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: 'trivy-results.sarif'
-
-    # Install Trivy
-    - name: Install Trivy
+        scan-type: config
+        hide-progress: true
+        output: trivy.txt
+    
+    - name: Publish Trivy Output to Summary
       run: |
-        wget https://github.com/aquasecurity/trivy/releases/download/v0.21.0/trivy_0.21.0_Linux-64bit.tar.gz
-        tar zxvf trivy_0.21.0_Linux-64bit.tar.gz
-        sudo mv trivy /usr/local/bin/
-
-    # Scan codebase with Trivy
-    - name: Scan codebase with Trivy
-      run: trivy --no-progress --severity HIGH,CRITICAL .
+        if [[ -s trivy.txt ]]; then
+          {
+            echo "### Security Output"
+            echo "<details><summary>Click to expand</summary>"
+            echo ""
+            echo '```terraform'
+            cat trivy.txt
+            echo '```'
+            echo "</details>"
+          } >> $GITHUB_STEP_SUMMARY
+        fi

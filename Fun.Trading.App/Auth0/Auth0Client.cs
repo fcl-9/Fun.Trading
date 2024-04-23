@@ -61,7 +61,6 @@ namespace Fun.Trading.App.Auth0
             };
 
             var browserResult = await oidcClient.Options.Browser.InvokeAsync(browserOptions);
-
             return browserResult;
         }
     }

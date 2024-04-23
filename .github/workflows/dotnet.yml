@@ -8,8 +8,7 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -22,7 +21,7 @@ jobs:
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x' # Adjust version as needed
+        dotnet-version: '8.0.x' # Adjust version as needed
         
     - name: Restore dependencies
       run: dotnet restore
@@ -38,5 +37,3 @@ jobs:
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
-        name: test-results
-        path: '**/TestResults/*.trx'

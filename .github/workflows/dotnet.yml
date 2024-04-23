@@ -32,3 +32,14 @@ jobs:
       
     - name: Run tests
       run: dotnet test --configuration Release --no-build
+
+    # Install Trivy
+    - name: Install Trivy
+      run: |
+        wget https://github.com/aquasecurity/trivy/releases/download/v0.21.0/trivy_0.21.0_Linux-64bit.tar.gz
+        tar zxvf trivy_0.21.0_Linux-64bit.tar.gz
+        sudo mv trivy /usr/local/bin/
+
+    # Scan codebase with Trivy
+    - name: Scan codebase with Trivy
+      run: trivy --no-progress --severity HIGH,CRITICAL .

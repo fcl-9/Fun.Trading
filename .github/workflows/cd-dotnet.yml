@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_run:
-    workflows: ["ci-dotnet"]
-    types:
-      - completed
   workflow_dispatch:
 
 jobs:
@@ -51,7 +47,7 @@ jobs:
         run: docker save --output ${CONTAINER_IMAGE_NAME}.tar "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
       
       - name: Upload Container Image
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: container-image
           path: ${CONTAINER_IMAGE_NAME}.tar

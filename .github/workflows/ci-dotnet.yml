@@ -28,7 +28,14 @@ jobs:
       run: dotnet build --configuration Release
       
     - name: Run tests
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+    
+    - name: Unit Tests Report
+      uses: dorny/test-reporter@v1
+      with:
+        name: unitTests                  
+        path: 'tests/**/TestResults/*.trx'
+        reporter: dotnet-trx              
 
     - name: Run Package Vulnerabiltiy Scan
       run: dotnet list package --vulnerable

@@ -45,7 +45,7 @@ jobs:
 
       - name: Build Docker image
         # working-directory: ./Fun.Trading
-        run: docker build -t $CONTAINER_IMAGE_NAME .
+        run: docker build -t $CONTAINER_IMAGE_NAME . -f .\docker
 
       # Example: Push Docker image to registry (replace with your deployment steps)
       # - name: Push Docker image

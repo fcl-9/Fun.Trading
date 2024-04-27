@@ -46,16 +46,16 @@ jobs:
 
       - name: Build Docker image
         # working-directory: ./Fun.Trading
-        run: docker build -t $CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG . -f "./docker/Dockerfile"
+        run: docker build -t "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}" . -f "./docker/Dockerfile"
 
       - name: Save Docker image
-        run: docker save --output $CONTAINER_IMAGE_NAME.tar "${CONTAINER_IMAGE_TAG}"
+        run: docker save --output image.tar "${CONTAINER_IMAGE_TAG}"
       
       - name: Upload Docker image
         uses: actions/upload-artifact@v2
         with:
           name: container-image
-          path: $CONTAINER_IMAGE_NAME.tar
+          path: image.tar
           retention-days: 1
 
 

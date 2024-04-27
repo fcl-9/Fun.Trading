@@ -28,7 +28,14 @@ jobs:
       run: dotnet build --configuration Release
       
     - name: Run tests
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+    
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1
+      with:
+        name: Unit Tests                  # Name of the check run which will be created
+        path: '*.trx'                     # Path to test results (inside artifact .zip)
+        reporter: dotnet-trx              # Format of test results
 
     - name: Run Package Vulnerabiltiy Scan
       run: dotnet list package --vulnerable

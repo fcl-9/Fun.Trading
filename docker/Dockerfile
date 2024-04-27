@@ -1,3 +1,5 @@
+#Based on the current directories run the following command to build an image :)  
+#   docker build . -f .\docker\Dockerfile
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 

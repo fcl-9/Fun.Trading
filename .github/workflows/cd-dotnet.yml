@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-release-artifact:
     runs-on: ubuntu-latest
 
     env:
@@ -65,3 +65,26 @@ jobs:
       #   run: |
       #     # Example: Use kubectl to apply Kubernetes manifests
       #     kubectl apply -f deployment.yaml
+
+  dev-deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build-release-artifact
+
+    steps:
+      - run: echo "Hello Dev"
+
+  staging-deploy: 
+    runs-on: ubuntu-latest
+    needs: 
+      - build-release-artifact
+    steps:
+      - run: echo "Hello Staging"
+
+  prod-deploy:
+    runs-on: ubuntu-latest
+    needs: 
+      - build-release-artifact
+      - staging-deploy
+    steps:
+      - run: echo "Hello Prod"

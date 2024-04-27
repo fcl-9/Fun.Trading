@@ -27,18 +27,18 @@ jobs:
         run: dotnet restore
         
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build --configuration Release 
         
       - name: Run tests
-        run: dotnet test --configuration Release --no-build
+        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
         continue-on-error: true
         
-      - name: Upload test results
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+      - name: Unit Tests Report
+        uses: dorny/test-reporter@v1
         with:
-          name: test-results
-          path: '**/TestResults/*.trx'
+          name: unitTests                  
+          path: 'tests/**/TestResults/*.trx'
+          reporter: dotnet-trx      
 
       - name: Build Container Image
         run: docker build -t "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}" . -f "./docker/Dockerfile"

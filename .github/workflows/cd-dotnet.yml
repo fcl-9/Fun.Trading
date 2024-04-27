@@ -48,13 +48,13 @@ jobs:
         run: docker build -t "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}" . -f "./docker/Dockerfile"
 
       - name: Save Container Image
-        run: docker save --output image.tar "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
+        run: docker save --output ${CONTAINER_IMAGE_NAME}.tar "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
       
       - name: Upload Container Image
         uses: actions/upload-artifact@v2
         with:
           name: container-image
-          path: image.tar
+          path: ${CONTAINER_IMAGE_NAME}.tar
           retention-days: 1
 
 

@@ -13,12 +13,12 @@ app-api:
   ingress:
     enabled: true
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: "/"
+      # nginx.ingress.kubernetes.io/rewrite-target: "/"
     hosts:
       - host: chart-example.local
         paths: 
         - path: "/my-test-app-api"
-          pathType: Exact
+          pathType: Prefix
 
   autoscaling:
     enabled: false
@@ -41,14 +41,6 @@ app-api:
         port: 8080
       initialDelaySeconds: 5
       periodSeconds: 5
-
-# replicaCount: 1
-
-# image:
-#   repository: nginx
-#   pullPolicy: IfNotPresent
-#   # Overrides the image tag whose default is the chart appVersion.
-#   tag: ""
 
 # imagePullSecrets: []
 # nameOverride: ""

@@ -44,14 +44,13 @@ jobs:
           name: test-results
           path: '**/TestResults/*.trx'
 
-      - name: Build Docker image
-        # working-directory: ./Fun.Trading
+      - name: Build Container Image
         run: docker build -t "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}" . -f "./docker/Dockerfile"
 
-      - name: Save Docker image
-        run: docker save --output image.tar "${CONTAINER_IMAGE_TAG}"
+      - name: Save Container Image
+        run: docker save --output image.tar "${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
       
-      - name: Upload Docker image
+      - name: Upload Container Image
         uses: actions/upload-artifact@v2
         with:
           name: container-image

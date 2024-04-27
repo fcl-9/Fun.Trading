@@ -47,6 +47,12 @@ jobs:
         # working-directory: ./Fun.Trading
         run: docker build -t $CONTAINER_IMAGE_NAME . -f "./docker/Dockerfile"
 
+      - name: Save Docker image as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: docker-image
+          path: |
+            $(docker save $CONTAINER_IMAGE_NAME:latest | gzip > $CONTAINER_IMAGE_NAME.tar.gz)
       # Example: Push Docker image to registry (replace with your deployment steps)
       # - name: Push Docker image
       #   run: |

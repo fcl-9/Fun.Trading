@@ -44,7 +44,7 @@ jobs:
           path: '**/TestResults/*.trx'
 
       - name: Build Docker image#
-        working-directory: ./Fun.Trading.Api
+        working-directory: ./docker/DockerFile
         run: docker build -t $CONTAINER_IMAGE_NAME .
 
       # Example: Push Docker image to registry (replace with your deployment steps)

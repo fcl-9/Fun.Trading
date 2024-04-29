@@ -42,10 +42,10 @@ jobs:
           reporter: dotnet-trx      
 
       - name: Build Container Image
-        run: docker build -t "${{ env.REGISTRY }}/${ CONTAINER_IMAGE_NAME }":"${ CONTAINER_IMAGE_TAG }" . -f "./docker/Dockerfile"
+        run: docker build -t "${{ env.REGISTRY }}/${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}" . -f "./docker/Dockerfile"
 
       - name: Save Container Image
-        run: docker save --output image.tar "${{ env.REGISTRY }}/${ CONTAINER_IMAGE_NAME }":"${ CONTAINER_IMAGE_TAG }"
+        run: docker save --output image.tar "${{ env.REGISTRY }}/${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
       
       - name: Upload Container Image
         uses: actions/upload-artifact@v4
@@ -62,7 +62,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and Push GH Continer image
-        run: docker push "${{ env.REGISTRY }}/${ CONTAINER_IMAGE_NAME }":"${ CONTAINER_IMAGE_TAG }"
+        run: docker push "${{ env.REGISTRY }}/${CONTAINER_IMAGE_NAME}":"${CONTAINER_IMAGE_TAG}"
 
   staging-deploy: 
     runs-on: ubuntu-latest

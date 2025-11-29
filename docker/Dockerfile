@@ -1,9 +1,9 @@
 #Based on the current directories run the following command to build an image :)  
 #   docker build . -f .\docker\Dockerfile
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /sln
 
 COPY *.sln ./
@@ -27,3 +27,4 @@ COPY --from=publish /app/publish .
 
 USER $APP_UID
 ENTRYPOINT ["dotnet", "Fun.Trading.Api.dll"]
+

@@ -365,3 +365,4 @@ FodyWeavers.xsd
 /Fun.Trading.Infrastructure/Migrations
 /Fun.Trading.Api/Trading.db-shm
 /Fun.Trading.Api/Trading.db-wal
+/scripts

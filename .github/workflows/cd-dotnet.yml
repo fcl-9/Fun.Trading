@@ -22,7 +22,7 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: 10.x.x'
         
       - name: Restore dependencies
         run: dotnet restore
@@ -90,3 +90,4 @@ jobs:
         
       - name: Load Container Image
         run: docker load --input image.tar
+

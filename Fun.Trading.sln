@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{29E7C833
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fun.Trading.Unit.Tests", "tests\Fun.Trading.Unit.Tests\Fun.Trading.Unit.Tests.csproj", "{5D1CEB93-BAF3-47C7-A37F-C72A9BDE046E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fun.Trading.UI", "src\Fun.Trading.UI\Fun.Trading.UI.csproj", "{C7E62978-3E40-4783-B757-7705C818BCA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{5D1CEB93-BAF3-47C7-A37F-C72A9BDE046E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D1CEB93-BAF3-47C7-A37F-C72A9BDE046E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D1CEB93-BAF3-47C7-A37F-C72A9BDE046E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E62978-3E40-4783-B757-7705C818BCA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E62978-3E40-4783-B757-7705C818BCA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E62978-3E40-4783-B757-7705C818BCA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E62978-3E40-4783-B757-7705C818BCA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{D4A68148-42E2-4718-A948-2780692984E0} = {5915D680-22AF-4710-9E64-1D8142E42352}
 		{D5223884-4582-4CFE-B60C-A6589A7E565B} = {5915D680-22AF-4710-9E64-1D8142E42352}
 		{5D1CEB93-BAF3-47C7-A37F-C72A9BDE046E} = {29E7C833-72B4-4259-A8B7-0031AA2EC9D8}
+		{C7E62978-3E40-4783-B757-7705C818BCA9} = {5915D680-22AF-4710-9E64-1D8142E42352}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42DC41DD-0937-4DF7-A3D7-B44E525B2EE9}

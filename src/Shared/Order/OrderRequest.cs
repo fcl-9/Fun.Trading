@@ -1,4 +1,4 @@
-﻿namespace Fun.Trading.Orders.Api.Model
+﻿namespace Shared.Order
 {
     public class OrderRequest
     {

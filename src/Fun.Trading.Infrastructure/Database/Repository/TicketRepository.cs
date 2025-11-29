@@ -1,7 +1,7 @@
-﻿using Fun.Trading.StaticData.Infrastructure.Database.DatabaseModel;
+﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
 using Microsoft.EntityFrameworkCore;
 
-namespace Fun.Trading.StaticData.Infrastructure.Database.Repository
+namespace Fun.Trading.Infrastructure.Database.Repository
 {
     public class TickerRepository : ITickerRepository
     {

@@ -1,0 +1,36 @@
+@model List<global::Fun.Trading.Api.Controllers.YourNamespace.Controllers.AccountResponse>
+
+<h2>Accounts</h2>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No accounts found.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>OwnerId</th>
+                <th>Type</th>
+                <th>Balance</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.OwnerId</td>
+                <td>@item.AccountType</td>
+                <td>@item.Balance.ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("Details", "Accounts", new { id = item.Id })">Details</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,7 +1,10 @@
 ﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Linq;
 
-namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
+namespace Fun.Trading.Infrastructure.Database.Repository
 {
     public class AccountRepository : IAcountRepository
     {
@@ -18,20 +21,29 @@ namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
             await _context.SaveChangesAsync();
             return account.Id;
         }
+
         public async Task<DbAccount?> GetAccountById(int accountId)
         {
             var account = await _context.Accounts.SingleOrDefaultAsync(acc => acc.Id == accountId);
             return account;
         }
+
         public async Task<IEnumerable<DbAccount>> GetAccountByOwnerId(int ownerId)
         {
             var accounts = await _context.Accounts.Where(acc => acc.OwnerId == ownerId).ToListAsync();
             return accounts;
         }
+
         public async Task<IEnumerable<DbTransaction>> GetTransactionsByAccount(int accountId)
         {
             var account = await _context.Accounts.SingleAsync(acc => acc.Id == accountId);
             return account.Transactions.ToList();
+        }
+
+        public async Task<IEnumerable<DbAccount>> GetAllAccounts()
+        {
+            var accounts = await _context.Accounts.ToListAsync();
+            return accounts;
         }
     }
 }

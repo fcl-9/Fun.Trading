@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Fun.Trading.StaticData.Api.Controllers
+namespace Fun.Trading.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

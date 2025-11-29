@@ -1,0 +1,26 @@
+@model global::Fun.Trading.Api.Controllers.YourNamespace.Controllers.AccountResponse
+
+<h2>Account Details</h2>
+
+@if (Model == null)
+{
+    <p>Account not found.</p>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-2">Id</dt>
+        <dd class="col-sm-10">@Model.Id</dd>
+
+        <dt class="col-sm-2">OwnerId</dt>
+        <dd class="col-sm-10">@Model.OwnerId</dd>
+
+        <dt class="col-sm-2">Type</dt>
+        <dd class="col-sm-10">@Model.AccountType</dd>
+
+        <dt class="col-sm-2">Balance</dt>
+        <dd class="col-sm-10">@Model.Balance.ToString("C")</dd>
+    </dl>
+
+    <a class="btn btn-secondary" href="@Url.Action("Index", "Accounts")">Back to list</a>
+}

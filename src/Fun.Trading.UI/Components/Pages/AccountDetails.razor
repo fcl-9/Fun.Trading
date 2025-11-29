@@ -1,0 +1,48 @@
+@page "/accounts/{Id:int}"
+@using global::Fun.Trading.Api.Controllers.YourNamespace.Controllers
+@inject Fun.Trading.UI.Services.IApiClient ApiClient
+
+<h3>Account Details</h3>
+
+@if (isLoading)
+{
+    <p>Loading...</p>
+}
+else if (account == null)
+{
+    <p>Account not found.</p>
+}
+else
+{
+    <dl class="row">
+        <dt class="col-sm-3">Id</dt>
+        <dd class="col-sm-9">@account.Id</dd>
+
+        <dt class="col-sm-3">Owner</dt>
+        <dd class="col-sm-9">@account.OwnerId</dd>
+
+        <dt class="col-sm-3">Type</dt>
+        <dd class="col-sm-9">@account.AccountType</dd>
+
+        <dt class="col-sm-3">Balance</dt>
+        <dd class="col-sm-9">@account.Balance.ToString("C")</dd>
+    </dl>
+
+    <a class="btn btn-secondary" href="/accounts">Back to list</a>
+}
+
+@code {
+    [SupplyParameterFromQuery(Name = "Id")]
+    [Parameter]
+    public int Id { get; set; }
+
+    private AccountResponse? account;
+    private bool isLoading = true;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isLoading = true;
+        account = await ApiClient.GetAccountByIdAsync(Id);
+        isLoading = false;
+    }
+}

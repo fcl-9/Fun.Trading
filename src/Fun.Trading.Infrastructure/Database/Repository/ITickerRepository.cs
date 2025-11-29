@@ -1,6 +1,6 @@
-﻿using Fun.Trading.StaticData.Infrastructure.Database.DatabaseModel;
+﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
 
-namespace Fun.Trading.StaticData.Infrastructure.Database.Repository
+namespace Fun.Trading.Infrastructure.Database.Repository
 {
     public interface ITickerRepository
     {

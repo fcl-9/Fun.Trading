@@ -1,7 +1,7 @@
 ﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
 using Microsoft.EntityFrameworkCore;
 
-namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
+namespace Fun.Trading.Infrastructure.Database.Repository
 {
     public class AccountRepository : IAcountRepository
     {

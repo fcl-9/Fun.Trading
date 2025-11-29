@@ -1,10 +1,10 @@
 using AutoMapper;
-using Fun.Trading.Api.Accounts.Models;
+using Fun.Trading.Api.Configurations;
 using Fun.Trading.Api.Controllers.YourNamespace.Controllers;
-using Fun.Trading.Api.DependencyInjectionConfigurations;
 using Fun.Trading.Infrastructure.Database.DatabaseModel;
-using Fun.Trading.StaticData.Infrastructure.Database.Repository;
+using Fun.Trading.Infrastructure.Database.Repository;
 using Microsoft.EntityFrameworkCore;
+using Shared.Transactions;
 using System;
 using System.Linq.Expressions;
 

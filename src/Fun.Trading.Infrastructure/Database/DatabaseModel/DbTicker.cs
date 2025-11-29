@@ -1,4 +1,4 @@
-﻿namespace Fun.Trading.StaticData.Infrastructure.Database.DatabaseModel
+﻿namespace Fun.Trading.Infrastructure.Database.DatabaseModel
 {
     public class DbTicker
     {

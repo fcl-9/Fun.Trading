@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace YourNamespace.Controllers
+namespace Fun.Trading.Api.Controllers
 {
     [Route("api/portfolio")]
     [ApiController]

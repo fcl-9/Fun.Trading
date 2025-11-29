@@ -1,6 +1,6 @@
 ﻿using Fun.Trading.Infrastructure.Database.DatabaseModel;
 
-namespace Fun.Trading.Api.Controllers.YourNamespace.Controllers
+namespace Fun.Trading.Infrastructure.Database.Repository
 {
     public interface IAcountRepository
     {

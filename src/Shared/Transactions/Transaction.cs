@@ -1,4 +1,4 @@
-﻿namespace Fun.Trading.Api.Accounts.Models
+﻿namespace Shared.Transactions
 {
     public class Transaction
     {

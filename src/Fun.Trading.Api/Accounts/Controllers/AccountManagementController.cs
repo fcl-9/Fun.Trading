@@ -1,9 +1,10 @@
 ﻿namespace Fun.Trading.Api.Controllers
 {
     using AutoMapper;
-    using Fun.Trading.Api.Accounts.Models;
     using Fun.Trading.Infrastructure.Database.DatabaseModel;
+    using Fun.Trading.Infrastructure.Database.Repository;
     using Microsoft.AspNetCore.Mvc;
+    using Shared.Transactions;
     using System;
 
     namespace YourNamespace.Controllers

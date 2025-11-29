@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Fun.Trading.Api.DependencyInjectionConfigurations
+namespace Fun.Trading.Api.Configurations
 {
     public static class DependencyInjection
     {

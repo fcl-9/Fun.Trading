@@ -1,6 +1,6 @@
-﻿using Fun.Trading.Orders.Api.Model;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Shared.Order;
 
 namespace Fun.Trading.Api.Orders.Controllers
 {

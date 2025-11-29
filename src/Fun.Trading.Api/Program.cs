@@ -19,11 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(opts => opts.UseSqlite("Data Source=
 builder.Services.AddScoped<ITickerRepository, TickerRepository>();
 builder.Services.AddScoped<IAcountRepository, AccountRepository>();
 
-builder.Services.AddAutoMapper(cfg =>
-{
-    cfg.AddProfile<AccountProfile>();
-    cfg.AddProfile<TransactionProfile>();
-});
+builder.Services.AddAutoMapper(typeof(AccountProfile), typeof(TransactionProfile));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

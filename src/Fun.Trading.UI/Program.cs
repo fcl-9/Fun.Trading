@@ -1,10 +1,13 @@
 using Fun.Trading.UI.Components;
+using Fun.Trading.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddHttpClient<IApiClient, ApiClient>(client => { client.BaseAddress = new Uri("https://localhost:7064/"); });
 
 var app = builder.Build();
 

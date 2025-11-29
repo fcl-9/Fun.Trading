@@ -3,7 +3,7 @@ using Mapster;
 using Fun.Trading.Infrastructure.Database.DatabaseModel;
 using Fun.Trading.Api.Controllers.YourNamespace.Controllers;
 
-namespace Fun.Trading.Api.Mapping
+namespace Fun.Trading.Api
 {
     public static class MapsterConfig
     {

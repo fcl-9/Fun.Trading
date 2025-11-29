@@ -8,5 +8,6 @@ namespace Fun.Trading.Infrastructure.Database.Repository
         public Task<DbAccount?> GetAccountById(int accountId);
         public Task<IEnumerable<DbAccount>> GetAccountByOwnerId(int ownerId);
         public Task<IEnumerable<DbTransaction>> GetTransactionsByAccount(int accountId);
+        public Task<IEnumerable<DbAccount>> GetAllAccounts();
     }
 }

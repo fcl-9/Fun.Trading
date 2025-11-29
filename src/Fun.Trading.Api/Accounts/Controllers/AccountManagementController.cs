@@ -1,12 +1,12 @@
-﻿namespace Fun.Trading.Api.Controllers
+﻿namespace Fun.Trading.Api.Accounts.Controllers
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Fun.Trading.Infrastructure.Database.DatabaseModel;
     using Fun.Trading.Infrastructure.Database.Repository;
     using Microsoft.AspNetCore.Mvc;
     using Shared.Transactions;
-    using System;
     using MapsterMapper;
-    using Fun.Trading.Api.Mapping;
     using Fun.Trading.Api.Controllers.YourNamespace.Controllers;
 
     [Route("api/accounts")]
@@ -28,6 +28,14 @@
             var dbAccount = mapper.Map<AccountRequest, DbAccount>(body);
             var accountId = await accountRepository.CreateAccount(dbAccount);
             return CreatedAtRoute(nameof(GetAccountById), accountId);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAccounts()
+        {
+            var dbAccounts = await accountRepository.GetAllAccounts();
+            var accounts = mapper.Map<IEnumerable<DbAccount>, IEnumerable<AccountResponse>>(dbAccounts);
+            return Ok(accounts);
         }
 
         [HttpGet("{accountId}")]
